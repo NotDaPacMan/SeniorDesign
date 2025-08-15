@@ -11,7 +11,9 @@ Our MyCobot is built up in three stages. These are:
 3. Drop it in the user's open hand
 ## Identifying what to pick up
 This part shouldn't be too bad, although there isn't any direct examples of it anywhere, it shouldn't be too difficult. Make sure to have a conda environment set up within ROS, as you'll be heavily relying on Python within ROS. Also, make sure to use Linux or WSL (if you're developing on a Windows PC), as ROS really only plays nice with Linux. If you develop directly on the Pi, it might be slightly slower than on your own computer, and also you won't be able to bring the MyCobot home. However, developing on another computer will require SSH into the computer, and then sending ROS topics over a network.
+
 Someone was able to create a [Mediapipe Wrapper](https://github.com/chrisywong/ros_mediapipe?tab=readme-ov-file) within ROS that we should be able to use for this step. Just follow the instructions for how to get the hand pose estimation to work, and then vibecode how to get the color that you're pointing at.
+
 **Alternative:** Using a mouse to click on a color would be much, much easier to do.
 ## Pick up the object
 This should be the simplest part, as there is an [example](https://docs.elephantrobotics.com/docs/gitbook-en/13-AdvancedKit/13.1%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/13.1.4-%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/mycobot_280.html) already online made by Elephant Robotics themselves. Just follow the instructions, and you should be set.
