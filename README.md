@@ -3,7 +3,7 @@ This is an overview of what the plan is for our senior design project.
 ## What we Physically Need
 1. MyCobot 280
 2. Camera setup at Rutgers
-3. [Camera on the robot](https://shop.elephantrobotics.com/products/camera-flange-2-0?srsltid=AfmBOorrMenfHOfeE5Xx8k1fwQRWLs7Ss3pe-imzu8PcDf_VmWWRW31G)
+3. [Camera on the robot](https://shop.elephantrobotics.com/products/camera-flange-2-0?srsltid=AfmBOorrMenfHOfeE5Xx8k1fwQRWLs7Ss3pe-imzu8PcDf_VmWWRW31G) ==Please order this ASAP!==
 ## Our Process
 Our MyCobot is built up in three stages. These are:
 1. Identify what object to pick up
