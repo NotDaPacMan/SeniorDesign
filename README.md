@@ -4,6 +4,7 @@ This is an overview of what the plan is for our senior design project.
 #### 9/7/2025
 <img width="1739" height="1308" alt="image" src="https://github.com/user-attachments/assets/69d013b8-ca17-4df0-99fb-c5ec709309ab" />
 Color Picker now functional!
+TODO: Get a block, and get coordinates for said block
 
 ## What we Physically Need
 1. MyCobot 280
