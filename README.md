@@ -13,17 +13,17 @@ We used the Software Developement Life Cycle (SDLC) V-Model, a variation of the 
 ![SDLC V-Model](https://media.geeksforgeeks.org/wp-content/uploads/20231030123258/software-Testing-SDLC-V-model.webp)
 
 ### V-Model Verification Phases
-1. Requirement Analysis &rarr The cobot is able to understand and respond to our queries.
-2. System Design &rarr Large Chunks: Creating Datasets, Training Model, Running Cobot.
-3. Architectural Design &rarr Using DROID Dataset, $\pi_0$, pymycobot.
-4. Module Design &rarr See objects inside the graph.
-5. Coding Phase &rarr Actually coding.
+1. Requirement Analysis <kbd>&rarr;</kbd> The cobot is able to understand and respond to our queries.
+2. System Design <kbd>&rarr;</kbd> Large Chunks: Creating Datasets, Training Model, Running Cobot.
+3. Architectural Design <kbd>&rarr;</kbd> Using DROID Dataset, $\pi_0$, pymycobot.
+4. Module Design <kbd>&rarr;</kbd> See objects inside the graph.
+5. Coding Phase <kbd>&rarr;</kbd> Actually coding.
 
 ### V-Model Validation Phases
-1. Unit Testing &rarr Figuring out bugs in the code.
-2. Integration Testing &rarr Figuring out if our modules actually communicate with each other properly (e.g. joint velocities)
-3. System Testing &rarr See if the cobot works.
-4. User Acceptance Testing &rarr See if our cobot works for clients (we haven't completed this step).
+1. Unit Testing <kbd>&rarr;</kbd> Figuring out bugs in the code.
+2. Integration Testing <kbd>&rarr;</kbd> Figuring out if our modules actually communicate with each other properly (e.g. joint velocities)
+3. System Testing <kbd>&rarr;</kbd> See if the cobot works.
+4. User Acceptance Testing <kbd>&rarr;</kbd> See if our cobot works for clients (we haven't completed this step).
 
 ## Performance Metrics
 For safety, we looked to the only standard mentioning cobots, [ISO/TS 15066:2016](https://www.iso.org/standard/62996.html), which describes safety standards for cobots in manufacturing environments. While we did take design cues from this guideline, such as having an easily accessible stop function (unplugging the cobot), as our cobot is autonomous, not all requirements are feasible, such as the hand-guided requirement. Fortunately, our cobot is much too small and slow to do any real harm, and its reach is limited.
