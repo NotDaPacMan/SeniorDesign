@@ -8,7 +8,9 @@ Traditional VLA Robots are extremely expensive, requiring high-end equipment/har
 ![Not 20,000 Dollars.](https://m.media-amazon.com/images/I/51iyDskD-2L.jpg)
 
 ## Design Methodology
-We used the SDLC V-Model, a variation of the V-Model introduced in class.
+We used the Software Developement Life Cycle (SDLC) V-Model, a variation of the V-Model introduced in class.
+
+![SDLC V-Model](https://media.geeksforgeeks.org/wp-content/uploads/20231030123258/software-Testing-SDLC-V-model.webp)
 
 ### V-Model Verification Phases
 1. Requirement Analysis -> The cobot is able to understand and respond to our queries.
