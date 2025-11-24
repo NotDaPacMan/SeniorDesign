@@ -29,3 +29,9 @@ We used the Software Developement Life Cycle (SDLC) V-Model, a variation of the 
 For safety, we looked to the only standard mentioning cobots, [ISO/TS 15066:2016](https://www.iso.org/standard/62996.html), which describes safety standards for cobots in manufacturing environments. While we did take design cues from this guideline, such as having an easily accessible stop function (unplugging the cobot), as our cobot is autonomous, not all requirements are feasible, such as the hand-guided requirement. Fortunately, our cobot is much too small and slow to do any real harm, and its reach is limited.
 
 For performance, we based our results off of the average task progress from the [pi_0 report](https://arxiv.org/html/2410.24164v1). As VLA models are black-box models, there is unfortunately no way to set any concrete standards for our scenario. However, knowing that there is no support for our cobot (there is no model made for the MyCobot 280, nor does the MyCobot 280 even support LeRobot), to be quite candid, having it work at all was our main goal, especially with a more lightweight model and limited training data. In some scenarios, even Physical Intelligence was unable to make any progress with third-party robots using their "small" model, so any movement in our cobot is very big deal.
+
+## Science!
+Why this was the largest mistake of our lives.
+
+### VLA Model
+Vision Language 
