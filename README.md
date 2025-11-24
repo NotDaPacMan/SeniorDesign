@@ -5,7 +5,7 @@ The biggest mistake of our lives.
 
 Traditional VLA Robots are extremely expensive, requiring high-end equipment/hardware. This means that they are mostly accessible only to big labs or large companies. This means that they are impractical use for most consumers because of this cost barrier. We built a pipeline that implements a VLA model on a low-cost collaborative robot (MyCobot 280) that can be extended to robots that have similar capabilites (Python API). It is affordable bringing VLA capabilities to a low-cost robot instead of expensive lab hardware, accessible, enabling students, small teams, and hobbyists to experiment with VLA models, and practical, demonstrating that VLA concepts can work in everyday, low-budget settings.
 
-![alt text](https://www.1x.tech/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fqka6yvsc%2Fproduction%2Fba6083f5add3b381b4034a9176609e92e75e29ec-1100x655.jpg “20,000 dollars.”)
+![20,000 dollars.](https://www.1x.tech/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fqka6yvsc%2Fproduction%2Fba6083f5add3b381b4034a9176609e92e75e29ec-1100x655.jpg)
 
 ## Design Methodology
 We used the SDLC V-Model, a variation of the V-Model introduced in class.
