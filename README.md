@@ -35,27 +35,27 @@ For performance, we based our results off of the average task progress from the 
 ## Science!
 Why this was the largest mistake of our lives.
 
-A Vision–Language–Action (VLA) model is, mathematically, a **conditional policy** that we can write as
+A Vision–Language–Action (VLA) model is, mathematically, a **conditional policy** that we can write as\
 $$\pi_\theta(a_t \mid o_t, \ell),$$
 where (o_t) is the robot’s observation at time (t) (multi-camera images plus proprioception like joint angles/gripper state), (\ell) is a language instruction, and (a_t) is the action (e.g., joint deltas/velocities or end-effector targets). The “science” is that we’re learning a high-dimensional function that fuses vision and language into a control-relevant latent representation, then maps that representation into the robot’s action space.
 
-DROID-style dataset collection is basically building an empirical approximation to the trajectory distribution we want the policy to imitate. We log episodes as time-indexed trajectories
+DROID-style dataset collection is basically building an empirical approximation to the trajectory distribution we want the policy to imitate. We log episodes as time-indexed trajectories\
 $$\tau = {(o_t,\ell,a_t)}_{t=1}^{T},$$
 with **synchronized** multi-camera images, proprioception, and actions, plus timestamps and metadata. The “science” here is data quality: alignment (camera frames matched to the exact action/state), consistent coordinate frames, calibrated scaling of actions, and coverage of the state space (diverse starts, perturbations, recoveries). Good datasets reduce covariate shift and make the supervised objective meaningful; bad synchronization or inconsistent action definitions can dominate the loss and prevent the model from learning a usable policy.
 
-Training is usually **imitation learning / behavior cloning**, i.e., supervised learning on demonstrations (\mathcal{D}={(o_t,\ell,a_t)}). We optimize parameters (\theta) to maximize the likelihood of expert actions (or equivalently minimize a loss), commonly:
+Training is usually **imitation learning / behavior cloning**, i.e., supervised learning on demonstrations (\mathcal{D}={(o_t,\ell,a_t)}). We optimize parameters (\theta) to maximize the likelihood of expert actions (or equivalently minimize a loss), commonly:\
 $$\min_\theta \ \mathbb{E}*{(o_t,\ell,a_t)\sim\mathcal{D}}\big[-\log \pi*\theta(a_t \mid o_t,\ell)\big]$$
-for discrete actions, or a regression loss like MSE / negative log-likelihood under a Gaussian for continuous actions:
+for discrete actions, or a regression loss like MSE / negative log-likelihood under a Gaussian for continuous actions:\
 $$\min_\theta \ \mathbb{E}\big[|a_t-\mu_\theta(o_t,\ell)|^2\big] \quad \text{or} \quad \min_\theta \ \mathbb{E}\big[-\log \mathcal{N}(a_t;\mu_\theta,\Sigma_\theta)\big]$$
 Under the hood, the model is doing representation learning: a vision encoder turns pixels into features, a language encoder turns text into embeddings, and a fusion module (often attention) computes a context vector that an action head maps into controls. The practical math issues we deal with are distribution shift (train on demonstrations, test on the model’s own states), stability (small errors can compound over time), and choosing an action parameterization that makes the learning problem well-conditioned (scaling/normalizing actions, predicting deltas vs absolute targets, discretizing gripper, etc.).
 
-LoRA fine-tuning is an efficiency trick grounded in linear algebra. Instead of updating a massive pretrained weight matrix (W\in\mathbb{R}^{d\times k}), we freeze it and learn a low-rank update:
+LoRA fine-tuning is an efficiency trick grounded in linear algebra. Instead of updating a massive pretrained weight matrix (W\in\mathbb{R}^{d\times k}), we freeze it and learn a low-rank update:\
 $$W' = W + \Delta W,\qquad \Delta W = BA,$$
 where (B\in\mathbb{R}^{d\times r}), (A\in\mathbb{R}^{r\times k}), and (r \ll \min(d,k)). This constrains the adaptation to a low-dimensional subspace, drastically reducing trainable parameters and making optimization cheaper while still allowing the model to specialize to our robot/cameras. In attention layers, this is especially effective because the key/query/value projections are large, and low-rank updates can capture a lot of domain shift (new camera geometry, lighting, robot kinematics) without retraining everything.
 
-Inference is the real-time application of the learned policy: at each step we compute
+Inference is the real-time application of the learned policy: at each step we compute\
 $$a_t = f_\theta(o_t,\ell)$$
-(or sample (a_t \sim \pi_\theta(\cdot \mid o_t,\ell))), then execute it in a control loop. The systems side matters: we pick a policy rate (say 10–30 Hz), synchronize sensors, and apply filtering/constraints so actions are physically feasible:
+(or sample (a_t \sim \pi_\theta(\cdot \mid o_t,\ell))), then execute it in a control loop. The systems side matters: we pick a policy rate (say 10–30 Hz), synchronize sensors, and apply filtering/constraints so actions are physically feasible:\
 $$a_t^{\text{safe}} = \text{clip}(\text{filter}(a_t),\ \text{joint limits, velocity limits, workspace limits}).$$
 Even if the policy is learned, the execution still leans on classical control ideas—rate limiting, smoothing, and constraint projection—because the robot is a dynamical system and we need stability and safety margins.
 
