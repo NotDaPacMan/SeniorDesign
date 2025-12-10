@@ -67,7 +67,7 @@ Inference is the real-time application of the learned policy: at each step we co
 ```math
 a_t = f_\theta(o_t,\ell)
 ```
-(or sample $a_t \sim \pi_\theta(\cdot \mid o_t,\ell)$), then execute it in a control loop. The systems side matters: we pick a policy rate (say 10 Hz), synchronize sensors, and apply filteringconstraints so actions are physically feasible:
+(or sample $a_t \sim \pi_\theta(\cdot \mid o_t,\ell)$ ), then execute it in a control loop. The systems side matters: we pick a policy rate (say 10 Hz), synchronize sensors, and apply filteringconstraints so actions are physically feasible:
 ```math
 a_t^{\text{safe}} = \text{clip}(\text{filter}(a_t),\ \text{joint limits, velocity limits, workspace limits}).
 ```
