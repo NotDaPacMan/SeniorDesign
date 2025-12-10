@@ -36,9 +36,7 @@ For performance, we based our results off of the average task progress from the 
 Why this was the largest mistake of our lives.
 
 A Vision–Language–Action (VLA) model is, mathematically, a **conditional policy** that we can write as
-$$
-\pi_\theta(a_t \mid o_t, \ell),
-$$
+$$\pi_\theta(a_t \mid o_t, \ell),$$
 where (o_t) is the robot’s observation at time (t) (multi-camera images plus proprioception like joint angles/gripper state), (\ell) is a language instruction, and (a_t) is the action (e.g., joint deltas/velocities or end-effector targets). The “science” is that we’re learning a high-dimensional function that fuses vision and language into a control-relevant latent representation, then maps that representation into the robot’s action space.
 
 DROID-style dataset collection is basically building an empirical approximation to the trajectory distribution we want the policy to imitate. We log episodes as time-indexed trajectories
