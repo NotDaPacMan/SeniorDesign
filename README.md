@@ -1,7 +1,7 @@
 # Cobotic AI
 The biggest mistake of our lives.
 
-## Why did we do this? <sup> Because Jafari made us </sup>
+## Why did we do this?
 
 Traditional VLA Robots are extremely expensive, requiring high-end equipment/hardware. This means that they are mostly accessible only to big labs or large companies. This means that they are impractical use for most consumers because of this cost barrier. We built a pipeline that implements a VLA model on a low-cost collaborative robot (MyCobot 280) that can be extended to robots that have similar capabilites (Python API). It is affordable bringing VLA capabilities to a low-cost robot instead of expensive lab hardware, accessible, enabling students, small teams, and hobbyists to experiment with VLA models, and practical, demonstrating that VLA concepts can work in everyday, low-budget settings.
 
